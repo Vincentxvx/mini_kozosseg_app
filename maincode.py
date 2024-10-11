@@ -86,18 +86,21 @@ def openuser1():
 
     name1 = Label(lsideinfo, text="Bence", font=("Arial", 20), bg="#303030", fg="#656565")
     name1.place(relx=0.5, rely=0, anchor=N)
-
-    
-
     
     buttons = Frame(lsideinfo, bg="#303030")
     buttons.place(relx=0, rely=0.35, relwidth=1, relheight=0.65) 
-
  
     info = Button(buttons, text="INFO", command=openinfo, height=2, bg="#48CFCB")
     info.place(relx=0.5, rely=0,relwidth=0.95, anchor=N)  
     galeri = Button(buttons, text="GALERIE", command=openinfo, height=2, bg="#48CFCB")
     galeri.place(relx=0.5, rely=0.1,relwidth=0.95, anchor=N)  
+    
+    #rightsidechat
+    rightcisechat = Frame(user1window, width=800, height=750, bg="white")
+    rightcisechat.place(rely=0.5, relx=0,anchor=E)
+    
+    Chat = Entry(rightcisechat, bg="white")
+    Chat.place(relx=0.5,rely=1, anchor=S)
 
 
 
