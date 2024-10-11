@@ -19,7 +19,7 @@ Labelfont = tkFont.Font(family="Times New Roman",  size=12,  weight="bold", unde
 
 # Variables
 
-user1 = "Bence"
+user1 = ""
 passw1 = ""
 user2 = "Rasch"
 passw2 = ""
@@ -96,11 +96,13 @@ def openuser1():
     galeri.place(relx=0.5, rely=0.1,relwidth=0.95, anchor=N)  
     
     #rightsidechat
-    rightcisechat = Frame(user1window, width=800, height=750, bg="white")
-    rightcisechat.place(rely=0.5, relx=0,anchor=E)
+    rightcisechat = Frame(user1window, width=800, height=750, bg="blue")
+    rightcisechat.place(relx=1,rely=0.5,anchor=E)
     
-    Chat = Entry(rightcisechat, bg="white")
+    Chat = Entry(rightcisechat, bg="white", width=130)
     Chat.place(relx=0.5,rely=1, anchor=S)
+    
+
 
 
 
