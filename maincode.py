@@ -25,16 +25,9 @@ user2 = "Rasch"
 passw2 = ""
 
 
-Vincent = {
-    "name": "Vincent",
-    "age": 17,
-    "gender": "Male"
-}
-Mate = {
-    "name": "Máté",
-    "age": 17,
-    "gender": "Male"
-}
+
+
+
 # Variables
 
 
@@ -93,14 +86,22 @@ def openuser1():
     info = Button(buttons, text="INFO", command=openinfo, height=2, bg="#48CFCB")
     info.place(relx=0.5, rely=0,relwidth=0.95, anchor=N)  
     galeri = Button(buttons, text="GALERIE", command=openinfo, height=2, bg="#48CFCB")
-    galeri.place(relx=0.5, rely=0.1,relwidth=0.95, anchor=N)  
+    galeri.place(relx=0.5, rely=0.1,relwidth=0.95, anchor=N) 
+    ChatSend = Button(buttons, text="ChatSend", command=messages1,height=2, bg="#48CFCB")
+    ChatSend.place(relx=0.5, rely=0.9,relwidth=0.95, anchor=N)  
     
     #rightsidechat
     rightcisechat = Frame(user1window, width=800, height=750, bg="blue")
     rightcisechat.place(relx=1,rely=0.5,anchor=E)
-    
-    Chat = Entry(rightcisechat, bg="white", width=130)
-    Chat.place(relx=0.5,rely=1, anchor=S)
+
+    global Chat1
+    Chat1 = Entry(rightcisechat, bg="white", width=130)
+    Chat1.place(relx=0.5,rely=1, anchor=S)
+
+def messages1(): 
+    with open('./messages.txt', 'a', encoding='utf-8') as fajl: 
+        print("Bence :", Chat1.get(), file=fajl)
+
     
 
 
@@ -115,6 +116,34 @@ def openuser2():
     user2window.config(bg="#424242")
     user2window.title(user2)
 
+       # info1
+    lsideinfo = Frame(user2window, bg="#303030", width=200, height=750)
+    lsideinfo.place(relx=0, rely=0.5, anchor=W)
+
+    name1 = Label(lsideinfo, text="Vincent", font=("Arial", 20), bg="#303030", fg="#656565")
+    name1.place(relx=0.5, rely=0, anchor=N)
+    
+    buttons = Frame(lsideinfo, bg="#303030")
+    buttons.place(relx=0, rely=0.35, relwidth=1, relheight=0.65) 
+ 
+    info = Button(buttons, text="INFO", command=openinfo, height=2, bg="#48CFCB")
+    info.place(relx=0.5, rely=0,relwidth=0.95, anchor=N)  
+    galeri = Button(buttons, text="GALERIE", command=openinfo, height=2, bg="#48CFCB")
+    galeri.place(relx=0.5, rely=0.1,relwidth=0.95, anchor=N) 
+    ChatSend = Button(buttons, text="ChatSend", command=messages2,height=2, bg="#48CFCB")
+    ChatSend.place(relx=0.5, rely=0.9,relwidth=0.95, anchor=N)  
+    
+    #rightsidechat
+    rightcisechat = Frame(user2window, width=800, height=750, bg="blue")
+    rightcisechat.place(relx=1,rely=0.5,anchor=E)
+
+    global Chat2
+    Chat2 = Entry(rightcisechat, bg="white", width=130)
+    Chat2.place(relx=0.5,rely=1, anchor=S)
+
+def messages2(): 
+    with open('./messages.txt', 'a', encoding='utf-8') as fajl: 
+        print("Vincent:", Chat2.get(), file=fajl)
 
 def login():
     global user1,   user2,   user_entry,   passw1,   passw2,   passwd_entry
