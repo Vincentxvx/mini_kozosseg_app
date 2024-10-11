@@ -91,8 +91,14 @@ def openuser1():
     ChatSend.place(relx=0.5, rely=0.9,relwidth=0.95, anchor=N)  
     
     #rightsidechat
+
+    
+
     rightcisechat = Frame(user1window, width=800, height=750, bg="blue")
     rightcisechat.place(relx=1,rely=0.5,anchor=E)
+
+    Chat1Text = Label(rightcisechat,text="tesztfffffffffffffffffffffffffffffffffffftesztfffffffffffffffffffffffffffffffffffftesztfffffffffffffffffffffffffffffffffffftesztfffffffffffffffffffffffffffffffffffftesztfffffffffffffffffffffffffffffffffffftesztfffffffffffffffffffffffffffffffffffftesztfffffffffffffffffffffffffffffffffffftesztfffffffffffffffffffffffffffffffffffftesztfffffffffffffffffffffffffffffffffffftesztfffffffffffffffffffffffffffffffffffftesztfffffffffffffffffffffffffffffffffffftesztfffffffffffffffffffffffffffffffffffftesztfffffffffffffffffffffffffffffffffffftesztfffffffffffffffffffffffffffffffffffftesztfffffffffffffffffffffffffffffffffffftesztfffffffffffffffffffffffffffffffffffftesztffffffffffffffffffffffffffffffffffff", bg="white", width=400, font=Labelfont)
+    Chat1Text.place(relx=0, rely=0, anchor=W)
 
     global Chat1
     Chat1 = Entry(rightcisechat, bg="white", width=130)
