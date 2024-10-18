@@ -19,11 +19,22 @@ Labelfont = tkFont.Font(family="Times New Roman",  size=12,  weight="bold", unde
 # Variables
 
 user1 = ""
+user1 = ""
 passw1 = ""
 user2 = "Rasch"
 passw2 = ""
 
 
+Vincent = {
+    "name": "Vincent",
+    "age": 17,
+    "gender": "Male"
+}
+Mate = {
+    "name": "Máté",
+    "age": 17,
+    "gender": "Male"
+}
 # Variables
 Cim = Label(root,  text="Please enter your login information: ",   font=Titlefont,   fg="white",  bg="#48CFCB")
 Cim.place(relx=0.5,  rely=0.1,  anchor=N)
