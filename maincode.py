@@ -7,7 +7,6 @@ from tkinter import PhotoImage
 
 
 # Color palette: #F5F5F5 #48CFCB #229799 #424242
-
 root = Tk()
 root.title("Mini közösségi app")
 root.config(bg="#48CFCB")
@@ -19,6 +18,7 @@ Labelfont = tkFont.Font(family="Times New Roman",  size=12,  weight="bold", unde
 
 # Variables
 
+user1 = ""
 user1 = ""
 passw1 = ""
 user2 = "Rasch"
@@ -36,8 +36,6 @@ Mate = {
     "gender": "Male"
 }
 # Variables
-
-
 Cim = Label(root,  text="Please enter your login information: ",   font=Titlefont,   fg="white",  bg="#48CFCB")
 Cim.place(relx=0.5,  rely=0.1,  anchor=N)
 
@@ -93,18 +91,57 @@ def openuser1():
     info = Button(buttons, text="INFO", command=openinfo, height=2, bg="#48CFCB")
     info.place(relx=0.5, rely=0,relwidth=0.95, anchor=N)  
     galeri = Button(buttons, text="GALERIE", command=openinfo, height=2, bg="#48CFCB")
-    galeri.place(relx=0.5, rely=0.1,relwidth=0.95, anchor=N)  
+    galeri.place(relx=0.5, rely=0.1,relwidth=0.95, anchor=N) 
+    ChatSend = Button(buttons, text="ChatSend", command=messages1,height=2, bg="#48CFCB")
+    ChatSend.place(relx=0.5, rely=0.9,relwidth=0.95, anchor=N)  
     
     #rightsidechat
+    global rightcisechat
     rightcisechat = Frame(user1window, width=800, height=750, bg="blue")
     rightcisechat.place(relx=1,rely=0.5,anchor=E)
+
+    # frame = Frame(Toplevel)
+    # frame.place(padx=10, pady=10)
+    # text = Text(frame, height=15, width=50)
+    # text.pack(side=LEFT, fill=BOTH)
+    # scrollbar = Scrollbar(frame)
+    # scrollbar.pack(side=RIGHT, fill=Y)
+    # text.config(yscrollcommand=scrollbar.set)
+    # scrollbar.config(command=text.yview)
+
+    global Chat1
+    Chat1 = Entry(rightcisechat, bg="white", width=130)
+    Chat1.place(relx=0.5,rely=1, anchor=S)
+    eltolas = 0.05
+    with open('./messages.txt', 'r', encoding='utf-8') as fajl2:
+        for sor in fajl2:
+            if "Bence" in sor: 
+                kiir = Label(rightcisechat, text=sor, bg='white', fg="black")
+                kiir.place(relx=1, rely=eltolas, anchor=NE)
+                eltolas += 0.05  
+            elif "Vincent" in sor:
+                kiir = Label(rightcisechat, text=sor, bg='white', fg="black")
+                kiir.place(relx=0, rely=eltolas, anchor=NW)
+                eltolas += 0.05
+
+def messages1():
+    eltolas = 0.05 
+    with open('./messages.txt', 'a', encoding='utf-8') as fajl:
+        print("Bence:", Chat1.get(), file=fajl)
     
-    Chat = Entry(rightcisechat, bg="white", width=130)
-    Chat.place(relx=0.5,rely=1, anchor=S)
-    
 
 
-
+    with open('./messages.txt', 'r', encoding='utf-8') as fajl2:
+        for sor in fajl2:
+            if "Bence" in sor: 
+                kiir = Label(rightcisechat, text=sor, bg='white', fg="black")
+                kiir.place(relx=1, rely=eltolas, anchor=NE)
+                eltolas += 0.05  
+            elif "Vincent" in sor:
+                kiir = Label(rightcisechat, text=sor, bg='white', fg="black")
+                kiir.place(relx=0, rely=eltolas, anchor=NW)
+                eltolas += 0.05
+   
 
 
 def openuser2():
@@ -114,6 +151,60 @@ def openuser2():
     user2window.maxsize(1000,   750)
     user2window.config(bg="#424242")
     user2window.title(user2)
+
+       # info1
+    lsideinfo = Frame(user2window, bg="#303030", width=200, height=750)
+    lsideinfo.place(relx=0, rely=0.5, anchor=W)
+
+    name1 = Label(lsideinfo, text="Vincent", font=("Arial", 20), bg="#303030", fg="#656565")
+    name1.place(relx=0.5, rely=0, anchor=N)
+    
+    buttons = Frame(lsideinfo, bg="#303030")
+    buttons.place(relx=0, rely=0.35, relwidth=1, relheight=0.65) 
+ 
+    info = Button(buttons, text="INFO", command=openinfo, height=2, bg="#48CFCB")
+    info.place(relx=0.5, rely=0,relwidth=0.95, anchor=N)  
+    galeri = Button(buttons, text="GALERIE", command=openinfo, height=2, bg="#48CFCB")
+    galeri.place(relx=0.5, rely=0.1,relwidth=0.95, anchor=N) 
+    ChatSend = Button(buttons, text="ChatSend", command=messages2,height=2, bg="#48CFCB")
+    ChatSend.place(relx=0.5, rely=0.9,relwidth=0.95, anchor=N)  
+    
+    #rightsidechat
+    global rightcisechat
+    rightcisechat = Frame(user2window, width=800, height=750, bg="blue")
+    rightcisechat.place(relx=1,rely=0.5,anchor=E)
+
+    global Chat2
+    Chat2 = Entry(rightcisechat, bg="white", width=130)
+    Chat2.place(relx=0.5,rely=1, anchor=S)
+    eltolas = 0.05 
+    with open('./messages.txt', 'r', encoding='utf-8') as fajl2:
+        for sor in fajl2:
+            if "Vincent" in sor: 
+                kiir = Label(rightcisechat, text=sor, bg='white', fg="black")
+                kiir.place(relx=1, rely=eltolas, anchor=NE)
+                eltolas += 0.05  
+            elif "Bence" in sor:
+                kiir = Label(rightcisechat, text=sor, bg='white', fg="black")
+                kiir.place(relx=0, rely=eltolas, anchor=NW)
+                eltolas += 0.05
+
+def messages2(): 
+    
+    eltolas = 0.05  
+    with open('./messages.txt', 'a', encoding='utf-8') as fajl:
+        print("Vincent:", Chat2.get(), file=fajl)
+    
+    with open('./messages.txt', 'r', encoding='utf-8') as fajl2:
+        for sor in fajl2:
+            if "Vincent" in sor: 
+                kiir = Label(rightcisechat, text=sor, bg='white', fg="black")
+                kiir.place(relx=1, rely=eltolas, anchor=NE)
+                eltolas += 0.05  
+            elif "Bence" in sor:
+                kiir = Label(rightcisechat, text=sor, bg='white', fg="black")
+                kiir.place(relx=0, rely=eltolas, anchor=NW)
+                eltolas += 0.05
 
 
 def login():
