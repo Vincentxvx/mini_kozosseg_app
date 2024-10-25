@@ -167,11 +167,12 @@ def openuser2():
 
     global chat_textbox2
     chat_textbox2 = Text(rightcisechat2, bg="white", width=100, height=47, wrap="word") #szavanként töri
+    chat_textbox2.config(state=DISABLED)
     chat_textbox2.place(relx=0.5, rely=0.5, anchor=CENTER)
     
-    scrollbar = Scrollbar(rightcisechat2, command=chat_textbox2.yview)
+    scrollbar = Scrollbar(rightcisechat2, command=chat_textbox2.yview, Entry=DISABLED)
     scrollbar.place(relx=1, rely=0, relheight=1, anchor=NE)
-    chat_textbox2.config(yscrollcommand=scrollbar.set)
+    chat_textbox2.config(yscrollcommand=scrollbar.set, Entry=DISABLED)
 
     
     chat_textbox2.tag_configure('right', justify='right', lmargin1=200, rmargin=50)  
