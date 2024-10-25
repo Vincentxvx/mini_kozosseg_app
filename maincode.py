@@ -212,4 +212,10 @@ def login():
 Enter = Button(userpass, text="Login", command=login)
 Enter.grid(row=3, column=1)
 
+<<<<<<< HEAD
+=======
+Enter = Button(userpass,  text="Login",  command=login)
+Enter.grid(row=3,  column=1)
+
+>>>>>>> 12f8018085b988b74b75c332750e3ab35b3135ce
 root.mainloop()
