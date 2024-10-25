@@ -22,6 +22,9 @@ user1 = ""
 passw1 = ""
 user2 = "Rasch"
 passw2 = ""
+user3 = "asd"
+passw3 = "asd"
+
 
 Vincent = {
     "name": "Vincent",
@@ -35,6 +38,7 @@ Mate = {
 }
 
 # UI Elements
+# scroll = Scrollbar()
 Cim = Label(root, text="Please enter your login information: ", font=Titlefont, fg="white", bg="#48CFCB")
 Cim.place(relx=0.5, rely=0.1, anchor=N)
 
@@ -72,6 +76,7 @@ def openuser1():
     user1window.maxsize(1000, 750)
     user1window.config(bg="#424242")
     user1window.title("User Profile")  
+    # scroll = Scrollbar(user1window)
 
     # info1
     lsideinfo = Frame(user1window, bg="#303030", width=200, height=750)
@@ -193,9 +198,38 @@ def messages2():
     with open('./messages.txt', 'a', encoding='utf-8') as fajl:
         fajl.write(message + "\n")
 
+def openuser3():
+    user3window = Toplevel()
+    user3window.geometry("1000x750")
+    user3window.minsize(1000, 750)
+    user3window.maxsize(1000, 750)
+    user3window.config(bg="#424242")
+    user3window.title("User Profile")  
+
+    # info1
+    lsideinfo = Frame(user3window, bg="#303030", width=200, height=750)
+    lsideinfo.place(relx=0, rely=0.5, anchor=W)
+
+    name1 = Label(lsideinfo, text="Vincent", font=("Arial", 20), bg="#303030", fg="#656565")
+    name1.place(relx=0.5, rely=0, anchor=N)
+    
+    buttons = Frame(lsideinfo, bg="#303030")
+    buttons.place(relx=0, rely=0.35, relwidth=1, relheight=0.65) 
+ 
+    info = Button(buttons, text="INFO", command=openinfo, height=2, bg="#48CFCB")
+    info.place(relx=0.5, rely=0, relwidth=0.95, anchor=N)  
+    galeri = Button(buttons, text="GALERIE", command=openinfo, height=2, bg="#48CFCB")
+    galeri.place(relx=0.5, rely=0.1, relwidth=0.95, anchor=N) 
+    ChatSend = Button(buttons, text="ChatSend", command=messages2, height=2, bg="#48CFCB")
+    ChatSend.place(relx=0.5, rely=0.9, relwidth=0.95, anchor=N)  
+    
+    
+    global rightcisechat2
+    rightcisechat2 = Frame(user3window, width=800, height=750, bg="blue")
+    rightcisechat2.place(relx=1, rely=0.5, anchor=E)
 
 def login():
-    global user1, user2, user_entry, passw1, passw2, passwd_entry
+    global user1, user2, user3, user_entry, passw1, passw2, passw3, passwd_entry
 
     username_input = user_entry.get()
     password_input = passwd_entry.get()
@@ -204,6 +238,9 @@ def login():
         openuser1()
     elif username_input == user2 and password_input == passw2:
         openuser2()
+    elif username_input == user3 and password_input == passw3:
+        openuser3()
+
     else:
         print("Login failed")
         messagebox.showerror("Error", "Invalid username or password")
@@ -212,10 +249,4 @@ def login():
 Enter = Button(userpass, text="Login", command=login)
 Enter.grid(row=3, column=1)
 
-<<<<<<< HEAD
-=======
-Enter = Button(userpass,  text="Login",  command=login)
-Enter.grid(row=3,  column=1)
-
->>>>>>> 12f8018085b988b74b75c332750e3ab35b3135ce
 root.mainloop()
