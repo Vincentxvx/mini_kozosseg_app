@@ -52,12 +52,161 @@ passwd_entry.grid(column=1, row=2)
 
 # Functions
 
+def galery():
+    global image_list, galeria, textOfStatusbar, status, index, my_label
+    galeria = Toplevel()
+    galeria.minsize(300, 300)
+    galeria.maxsize(300, 300)
+    galeria.config(bg="#424242")
+    galeria.title("Galéria")
+    
+    img1 = PhotoImage(file="../mini_kozosseg_app/download.gif")
+    img2 = PhotoImage(file="../mini_kozosseg_app/download3.gif")
+    img3 = PhotoImage(file="../mini_kozosseg_app/download3.gif")
+    img4 = PhotoImage(file="../mini_kozosseg_app/download4.gif")
+    index = 0
+    image_list = [img1, img2, img3, img4]
+
+    textOfStatusbar = StringVar()
+    textOfStatusbar.set(str(index + 1) + ". kép, összesen: " + str(len(image_list)))
+    status = Label(galeria, textvariable=textOfStatusbar, bd=1, relief=SUNKEN, anchor=W, bg="#424242", fg="white")
+
+    my_label = Label(galeria, image=image_list[index], bg="#424242")
+    my_label.grid(row=0, column=1, padx=10, pady=10)
+
+    status.grid(row=1, column=0, columnspan=3, sticky=W + E)
+
+    button_forward = Button(galeria, text=">>", command=forward)
+    button_forward.grid(row=0, column=2, sticky=W + E)
+
+    button_back = Button(galeria, text="<<", command=back)
+    button_back.grid(row=0, column=0, sticky=W + E)  
+    bezar = Button(galeria, text="Kilépés", command=galeria.destroy, bg="red")
+    bezar.place(relx=0.5, rely=0.95, anchor=CENTER)
+
+def forward():
+    global my_label
+    global index
+    global status
+    my_label.grid_forget()
+    if index + 1 == len(image_list):
+        index = 0   
+    else:
+        index += 1
+    my_label = Label(galeria, image=image_list[index], bg="#424242")
+    my_label.grid(row=0, column=1, padx=10, pady=10)
+    textOfStatusbar.set(str(index + 1) + ". kép, összesen: " + str(len(image_list)))
+
+def back():
+    global my_label
+    global index
+    global status
+    my_label.grid_forget()
+    if index - 1 == -1:
+        index = len(image_list) - 1
+    else:
+        index -= 1
+    my_label = Label(galeria, image=image_list[index], bg="#424242")
+    my_label.grid(row=0, column=1, padx=10, pady=10) 
+    textOfStatusbar.set(str(index + 1) + ". kép, összesen: " + str(len(image_list)))
+
+def galery2():
+    global image_list2, galeria2, textOfStatusbar2, status2, index2, my_label2
+    galeria2 = Toplevel()
+    galeria2.minsize(300, 300)
+    galeria2.maxsize(300, 300)
+    galeria2.config(bg="#424242")
+    galeria2.title("Galéria")
+    
+    img1 = PhotoImage(file="../mini_kozosseg_app/download.gif")
+    img2 = PhotoImage(file="../mini_kozosseg_app/download3.gif")
+    img3 = PhotoImage(file="../mini_kozosseg_app/download3.gif")
+    img4 = PhotoImage(file="../mini_kozosseg_app/download4.gif")
+    index2 = 0
+    image_list2 = [img1, img2, img3, img4]
+
+    textOfStatusbar2 = StringVar()
+    textOfStatusbar2.set(str(index2 + 1) + ". kép, összesen: " + str(len(image_list2)))
+    status2 = Label(galeria2, textvariable=textOfStatusbar2, bd=1, relief=SUNKEN, anchor=W, bg="#424242", fg="white")
+
+    my_label2 = Label(galeria2, image=image_list2[index2], bg="#424242")
+    my_label2.grid(row=0, column=1, padx=10, pady=10)
+
+    status2.grid(row=1, column=0, columnspan=3, sticky=W + E)
+
+    button_forward = Button(galeria2, text=">>", command=forward2)
+    button_forward.grid(row=0, column=2, sticky=W + E)
+
+    button_back = Button(galeria2, text="<<", command=back2)
+    button_back.grid(row=0, column=0, sticky=W + E)
+    
+    bezar = Button(galeria2, text="Kilépés", command=galeria2.destroy, bg="red")
+    bezar.place(relx=0.5, rely=0.95, anchor=CENTER)
+      
+
+def forward2():
+    global my_label2
+    global index2
+    global status2
+    my_label2.grid_forget()
+    if index2 + 1 == len(image_list2):
+        index2 = 0   
+    else:
+        index2 += 1
+    my_label2 = Label(galeria2, image=image_list2[index2], bg="#424242")
+    my_label2.grid(row=0, column=1, padx=10, pady=10)
+    textOfStatusbar2.set(str(index2 + 1) + ". kép, összesen: " + str(len(image_list2)))
+
+def back2():
+    global my_label2
+    global index2
+    global status2
+    my_label2.grid_forget()
+    if index2 - 1 == -1:
+        index2 = len(image_list2) - 1
+    else:
+        index2 -= 1
+    my_label2 = Label(galeria2, image=image_list2[index2], bg="#424242")
+    my_label2.grid(row=0, column=1, padx=10, pady=10) 
+    textOfStatusbar2.set(str(index2 + 1) + ". kép, összesen: " + str(len(image_list2)))
+
+
 def openinfo():
     InfoWin = Toplevel()
     InfoWin.geometry("500x750")
     InfoWin.minsize(500, 750)
     InfoWin.maxsize(500, 750)
     InfoWin.config(bg="#424242")
+    InfoWin.title("Adatok")
+    adatok = Label(InfoWin, text="Adatok", font=Titlefont)
+    adatok.place(relx=0.5, rely=0.1, anchor=CENTER)
+    nev = Label(InfoWin, text="Név: Kiss Bence Máté")
+    nev.place(relx=0.5, rely=0.2, anchor=CENTER)
+    szuletett = Label(InfoWin, text="Született: 2008.02.17")
+    szuletett.place(relx=0.5, rely=0.25, anchor=CENTER)
+    sport = Label(InfoWin, text="Sport: Nincs")
+    sport.place(relx=0.5, rely=0.3, anchor=CENTER)
+    bezar = Button(InfoWin, text="Kilépés", command=InfoWin.destroy, bg="red")
+    bezar.place(relx=0.5, rely=0.9, anchor=CENTER)
+
+def openinfo2():
+    InfoWin = Toplevel()
+    InfoWin.geometry("500x750")
+    InfoWin.minsize(500, 750)
+    InfoWin.maxsize(500, 750)
+    InfoWin.config(bg="#424242")
+    InfoWin.title("Adatok")
+    adatok = Label(InfoWin, text="Adatok", font=Titlefont)
+    adatok.place(relx=0.5, rely=0.1, anchor=CENTER)
+    nev = Label(InfoWin, text="Név: Rasch Vincent Richard")
+    nev.place(relx=0.5, rely=0.2, anchor=CENTER)
+    szuletett = Label(InfoWin, text="Született: írd be")
+    szuletett.place(relx=0.5, rely=0.25, anchor=CENTER)
+    sport = Label(InfoWin, text="Sport: írd be")
+    sport.place(relx=0.5, rely=0.3, anchor=CENTER)
+    bezar = Button(InfoWin, text="Kilépés", command=InfoWin.destroy, bg="red")
+    bezar.place(relx=0.5, rely=0.9, anchor=CENTER)
+
 
 
 def openuser1():
@@ -80,7 +229,7 @@ def openuser1():
 
     info = Button(buttons, text="INFO", command=openinfo, height=2, bg="#48CFCB")
     info.place(relx=0.5, rely=0, relwidth=0.95, anchor=N)
-    galeri = Button(buttons, text="GALERIE", command=openinfo, height=2, bg="#48CFCB")
+    galeri = Button(buttons, text="GALERIE", command=galery, height=2, bg="#48CFCB")
     galeri.place(relx=0.5, rely=0.1, relwidth=0.95, anchor=N)
     ChatSend = Button(buttons, text="ChatSend", command=messages1, height=2, bg="#48CFCB")
     ChatSend.place(relx=0.5, rely=0.9, relwidth=0.95, anchor=N)
@@ -156,9 +305,9 @@ def openuser2():
     buttons = Frame(lsideinfo, bg="#303030")
     buttons.place(relx=0, rely=0.35, relwidth=1, relheight=0.65)
 
-    info = Button(buttons, text="INFO", command=openinfo, height=2, bg="#48CFCB")
+    info = Button(buttons, text="INFO", command=openinfo2, height=2, bg="#48CFCB")
     info.place(relx=0.5, rely=0, relwidth=0.95, anchor=N)
-    galeri = Button(buttons, text="GALERIE", command=openinfo, height=2, bg="#48CFCB")
+    galeri = Button(buttons, text="GALERIE", command=galery2, height=2, bg="#48CFCB")
     galeri.place(relx=0.5, rely=0.1, relwidth=0.95, anchor=N)
     ChatSend = Button(buttons, text="ChatSend", command=messages2, height=2, bg="#48CFCB")
     ChatSend.place(relx=0.5, rely=0.9, relwidth=0.95, anchor=N)
