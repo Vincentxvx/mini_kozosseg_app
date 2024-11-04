@@ -55,32 +55,32 @@ passwd_entry.grid(column=1, row=2)
 def galery():
     global image_list, galeria, textOfStatusbar, status, index, my_label
     galeria = Toplevel()
-    galeria.minsize(300, 300)
-    galeria.maxsize(300, 300)
+    galeria.minsize(1000, 750)
+    galeria.maxsize(1000, 750)
     galeria.config(bg="#424242")
     galeria.title("Galéria")
     
-    img1 = PhotoImage(file="../mini_kozosseg_app/download.gif")
-    img2 = PhotoImage(file="../mini_kozosseg_app/download3.gif")
-    img3 = PhotoImage(file="../mini_kozosseg_app/download3.gif")
-    img4 = PhotoImage(file="../mini_kozosseg_app/download4.gif")
+    img1 = PhotoImage(file="../mini_kozosseg_app/bence2.ppm")
+    img2 = PhotoImage(file="../mini_kozosseg_app/bence.ppm")
+    img3 = PhotoImage(file="../mini_kozosseg_app/bence3.ppm")
+
     index = 0
-    image_list = [img1, img2, img3, img4]
+    image_list = [img1, img2, img3]
 
     textOfStatusbar = StringVar()
     textOfStatusbar.set(str(index + 1) + ". kép, összesen: " + str(len(image_list)))
-    status = Label(galeria, textvariable=textOfStatusbar, bd=1, relief=SUNKEN, anchor=W, bg="#424242", fg="white")
+    status = Label(galeria, textvariable=textOfStatusbar, bd=1, bg="#424242", fg="white")
+    status.place(relx=0.5, rely=0.89, anchor=CENTER)
 
     my_label = Label(galeria, image=image_list[index], bg="#424242")
-    my_label.grid(row=0, column=1, padx=10, pady=10)
+    my_label.place(relx=0.5, rely=0.5, anchor=CENTER)
 
-    status.grid(row=1, column=0, columnspan=3, sticky=W + E)
 
     button_forward = Button(galeria, text=">>", command=forward)
-    button_forward.grid(row=0, column=2, sticky=W + E)
+    button_forward.place(relx=1.0, rely=0.5, anchor=E)
 
     button_back = Button(galeria, text="<<", command=back)
-    button_back.grid(row=0, column=0, sticky=W + E)  
+    button_back.place(relx=0.0, rely=0.5, anchor=W) 
     bezar = Button(galeria, text="Kilépés", command=galeria.destroy, bg="red")
     bezar.place(relx=0.5, rely=0.95, anchor=CENTER)
 
@@ -89,12 +89,13 @@ def forward():
     global index
     global status
     my_label.grid_forget()
+    my_label.place_forget()
     if index + 1 == len(image_list):
         index = 0   
     else:
         index += 1
     my_label = Label(galeria, image=image_list[index], bg="#424242")
-    my_label.grid(row=0, column=1, padx=10, pady=10)
+    my_label.place(relx=0.5, rely=0.5, anchor=CENTER)
     textOfStatusbar.set(str(index + 1) + ". kép, összesen: " + str(len(image_list)))
 
 def back():
@@ -102,59 +103,58 @@ def back():
     global index
     global status
     my_label.grid_forget()
+    my_label.place_forget()
     if index - 1 == -1:
         index = len(image_list) - 1
     else:
         index -= 1
     my_label = Label(galeria, image=image_list[index], bg="#424242")
-    my_label.grid(row=0, column=1, padx=10, pady=10) 
+    my_label.place(relx=0.5, rely=0.5, anchor=CENTER)
     textOfStatusbar.set(str(index + 1) + ". kép, összesen: " + str(len(image_list)))
 
 def galery2():
     global image_list2, galeria2, textOfStatusbar2, status2, index2, my_label2
     galeria2 = Toplevel()
-    galeria2.minsize(300, 300)
-    galeria2.maxsize(300, 300)
+    galeria2.minsize(1000, 750)
+    galeria2.maxsize(1000, 750)
     galeria2.config(bg="#424242")
     galeria2.title("Galéria")
     
-    img1 = PhotoImage(file="../mini_kozosseg_app/download.gif")
-    img2 = PhotoImage(file="../mini_kozosseg_app/download3.gif")
-    img3 = PhotoImage(file="../mini_kozosseg_app/download3.gif")
-    img4 = PhotoImage(file="../mini_kozosseg_app/download4.gif")
+    img1 = PhotoImage(file="../mini_kozosseg_app/vincent.ppm")
+    img2 = PhotoImage(file="../mini_kozosseg_app/vincent2.ppm")
+    img3 = PhotoImage(file="../mini_kozosseg_app/vincent3.ppm")
     index2 = 0
-    image_list2 = [img1, img2, img3, img4]
+    image_list2 = [img1, img2, img3]
 
     textOfStatusbar2 = StringVar()
     textOfStatusbar2.set(str(index2 + 1) + ". kép, összesen: " + str(len(image_list2)))
-    status2 = Label(galeria2, textvariable=textOfStatusbar2, bd=1, relief=SUNKEN, anchor=W, bg="#424242", fg="white")
+    status2 = Label(galeria2, textvariable=textOfStatusbar2, bd=1, bg="#424242", fg="white")
+    status2.place(relx=0.5, rely=0.89, anchor=CENTER)
 
     my_label2 = Label(galeria2, image=image_list2[index2], bg="#424242")
-    my_label2.grid(row=0, column=1, padx=10, pady=10)
+    my_label2.place(relx=0.5, rely=0.5, anchor=CENTER)
 
-    status2.grid(row=1, column=0, columnspan=3, sticky=W + E)
 
     button_forward = Button(galeria2, text=">>", command=forward2)
-    button_forward.grid(row=0, column=2, sticky=W + E)
+    button_forward.place(relx=1.0, rely=0.5, anchor=E)
 
     button_back = Button(galeria2, text="<<", command=back2)
-    button_back.grid(row=0, column=0, sticky=W + E)
-    
+    button_back.place(relx=0.0, rely=0.5, anchor=W) 
     bezar = Button(galeria2, text="Kilépés", command=galeria2.destroy, bg="red")
     bezar.place(relx=0.5, rely=0.95, anchor=CENTER)
-      
 
 def forward2():
     global my_label2
     global index2
     global status2
     my_label2.grid_forget()
+    my_label2.place_forget()
     if index2 + 1 == len(image_list2):
         index2 = 0   
     else:
         index2 += 1
     my_label2 = Label(galeria2, image=image_list2[index2], bg="#424242")
-    my_label2.grid(row=0, column=1, padx=10, pady=10)
+    my_label2.place(relx=0.5, rely=0.5, anchor=CENTER)
     textOfStatusbar2.set(str(index2 + 1) + ". kép, összesen: " + str(len(image_list2)))
 
 def back2():
@@ -162,12 +162,14 @@ def back2():
     global index2
     global status2
     my_label2.grid_forget()
+    my_label2.place_forget()
+
     if index2 - 1 == -1:
         index2 = len(image_list2) - 1
     else:
         index2 -= 1
     my_label2 = Label(galeria2, image=image_list2[index2], bg="#424242")
-    my_label2.grid(row=0, column=1, padx=10, pady=10) 
+    my_label2.place(relx=0.5, rely=0.5, anchor=CENTER)
     textOfStatusbar2.set(str(index2 + 1) + ". kép, összesen: " + str(len(image_list2)))
 
 
@@ -224,6 +226,9 @@ def openuser1():
     name1 = Label(lsideinfo, text="Bence", font=("Arial", 20), bg="#303030", fg="#656565")
     name1.place(relx=0.5, rely=0, anchor=N)
 
+    bezar = Button(lsideinfo, text="Kilépés", command=user1window.destroy, height=2, bg="red")
+    bezar.place(relx=0.5, rely=0.1, relwidth=0.95, anchor=N)
+
     buttons = Frame(lsideinfo, bg="#303030")
     buttons.place(relx=0, rely=0.35, relwidth=1, relheight=0.65)
 
@@ -234,6 +239,7 @@ def openuser1():
     ChatSend = Button(buttons, text="ChatSend", command=messages1, height=2, bg="#48CFCB")
     ChatSend.place(relx=0.5, rely=0.9, relwidth=0.95, anchor=N)
 
+
     refresh_button = Button(buttons, text="Refresh", command=refresh_chat1, height=2, bg="#48CFCB")
     refresh_button.place(relx=0.5, rely=0.8, relwidth=0.95, anchor=N)
 
@@ -243,8 +249,9 @@ def openuser1():
     rightcisechat.place(relx=1, rely=0.5, anchor=E)
 
     global chat_textbox
-    chat_textbox = Text(rightcisechat, bg="white", width=100, height=47, wrap="word")
+    chat_textbox = Text(rightcisechat, bg="white", width=100, height=47, wrap="word", state="disabled")
     chat_textbox.place(relx=0.5, rely=0.5, anchor=CENTER)
+
 
     scrollbar = Scrollbar(rightcisechat, command=chat_textbox.yview)
     scrollbar.place(relx=1, rely=0, relheight=1, anchor=NE)
@@ -263,6 +270,7 @@ def openuser1():
 
 
 def load_chat1():
+    chat_textbox.config(state="normal")  
     chat_textbox.delete(1.0, END)
     with open('./messages.txt', 'r', encoding='utf-8') as fajl2:
         for sor in fajl2:
@@ -271,6 +279,8 @@ def load_chat1():
             else:
                 chat_textbox.insert(END, sor + "\n", 'left')
         chat_textbox.yview(END)
+    chat_textbox.config(state="disabled")  
+
 
 
 def refresh_chat1():
@@ -279,11 +289,15 @@ def refresh_chat1():
 
 def messages1():
     message = "Bence: " + Chat1.get()
+    chat_textbox.config(state="normal")  
     chat_textbox.insert(END, message + "\n", 'right')
     chat_textbox.yview(END)
+    chat_textbox.config(state="disabled")  
 
     with open('./messages.txt', 'a', encoding='utf-8') as fajl:
         fajl.write(message + "\n")
+    Chat1.delete(0, END)
+
 
 
 
@@ -301,6 +315,9 @@ def openuser2():
 
     name1 = Label(lsideinfo, text="Vincent", font=("Arial", 20), bg="#303030", fg="#656565")
     name1.place(relx=0.5, rely=0, anchor=N)
+
+    bezar = Button(lsideinfo, text="Kilépés", command=user2window.destroy, height=2, bg="red")
+    bezar.place(relx=0.5, rely=0.1, relwidth=0.95, anchor=N)
 
     buttons = Frame(lsideinfo, bg="#303030")
     buttons.place(relx=0, rely=0.35, relwidth=1, relheight=0.65)
@@ -321,7 +338,7 @@ def openuser2():
     rightcisechat2.place(relx=1, rely=0.5, anchor=E)
 
     global chat_textbox2
-    chat_textbox2 = Text(rightcisechat2, bg="white", width=100, height=47, wrap="word")
+    chat_textbox2 = Text(rightcisechat2, bg="white", width=100, height=47, wrap="word", state="disabled")
     chat_textbox2.place(relx=0.5, rely=0.5, anchor=CENTER)
 
     scrollbar = Scrollbar(rightcisechat2, command=chat_textbox2.yview)
@@ -343,6 +360,7 @@ def openuser2():
 
 def load_chat2():
     chat_textbox2.delete(1.0, END)
+    chat_textbox2.config(state="normal")
     with open('./messages.txt', 'r', encoding='utf-8') as fajl2:
         for sor in fajl2:
             if "Vincent" in sor:
@@ -350,6 +368,7 @@ def load_chat2():
             else:
                 chat_textbox2.insert(END, sor + "\n", 'left')
         chat_textbox2.yview(END)
+    chat_textbox2.config(state="disabled")
 
 
 def refresh_chat2():
@@ -358,12 +377,14 @@ def refresh_chat2():
 
 def messages2():
     message = "Vincent: " + Chat2.get()
+    chat_textbox2.config(state="normal")
     chat_textbox2.insert(END, message + "\n", 'right')
     chat_textbox2.yview(END)
+    chat_textbox2.config(state="disabled")
 
     with open('./messages.txt', 'a', encoding='utf-8') as fajl:
         fajl.write(message + "\n")
-
+    Chat2.delete(0, END)
 
 
 
@@ -384,13 +405,12 @@ def openuser3():
     name3 = Label(lsideinfo, text="Test User", font=("Arial", 20), bg="#303030", fg="#656565")
     name3.place(relx=0.5, rely=0, anchor=N)
 
+    bezar = Button(lsideinfo, text="Kilépés", command=user3window.destroy, height=2, bg="red")
+    bezar.place(relx=0.5, rely=0.1, relwidth=0.95, anchor=N)
+
     buttons = Frame(lsideinfo, bg="#303030")
     buttons.place(relx=0, rely=0.35, relwidth=1, relheight=0.65)
 
-    info = Button(buttons, text="INFO", command=openinfo, height=2, bg="#48CFCB")
-    info.place(relx=0.5, rely=0, relwidth=0.95, anchor=N)
-    galeri = Button(buttons, text="GALERIE", command=openinfo, height=2, bg="#48CFCB")
-    galeri.place(relx=0.5, rely=0.1, relwidth=0.95, anchor=N)
     ChatSend = Button(buttons, text="ChatSend", command=messages3, height=2, bg="#48CFCB")
     ChatSend.place(relx=0.5, rely=0.9, relwidth=0.95, anchor=N)
 
@@ -402,7 +422,7 @@ def openuser3():
     rightcisechat3.place(relx=1, rely=0.5, anchor=E)
 
     global chat_textbox3
-    chat_textbox3 = Text(rightcisechat3, bg="white", width=100, height=47, wrap="word")
+    chat_textbox3 = Text(rightcisechat3, bg="white", width=100, height=47, wrap="word", state="disabled")
     chat_textbox3.place(relx=0.5, rely=0.5, anchor=CENTER)
 
     scrollbar3 = Scrollbar(rightcisechat3, command=chat_textbox3.yview)
@@ -422,6 +442,7 @@ def openuser3():
 
 
 def load_chat3():
+    chat_textbox3.config(state="normal")
     chat_textbox3.delete(1.0, END)
     with open('./messages.txt', 'r', encoding='utf-8') as fajl2:
         for sor in fajl2:
@@ -430,6 +451,7 @@ def load_chat3():
             else:
                 chat_textbox3.insert(END, sor + "\n", 'left')
         chat_textbox3.yview(END)
+    chat_textbox3.config(state="disabled")
 
 
 def refresh_chat3():
@@ -437,12 +459,15 @@ def refresh_chat3():
 
 
 def messages3():
+    chat_textbox3.config(state="normal")
     message = "Test: " + Chat3.get()
     chat_textbox3.insert(END, message + "\n", 'right')
     chat_textbox3.yview(END)
+    chat_textbox3.config(state="disabled")
 
     with open('./messages.txt', 'a', encoding='utf-8') as fajl:
         fajl.write(message + "\n")
+    Chat3.delete(0, END)
 
 
 def open_private_message(sender):
