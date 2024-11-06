@@ -247,16 +247,16 @@ def openuser1():
     refresh_button.place(relx=0.5, rely=0.8, relwidth=0.95, anchor=N)
 
 
-    global rightcisechat
-    rightcisechat = Frame(user1window, width=800, height=750, bg="blue")
-    rightcisechat.place(relx=1, rely=0.5, anchor=E)
+    global rightsidechat
+    rightsidechat = Frame(user1window, width=800, height=750, bg="blue")
+    rightsidechat.place(relx=1, rely=0.5, anchor=E)
 
     global chat_textbox
-    chat_textbox = Text(rightcisechat, bg="white", width=100, height=47, wrap="word", state="disabled")
+    chat_textbox = Text(rightsidechat, bg="white", width=100, height=47, wrap="word", state="disabled")
     chat_textbox.place(relx=0.5, rely=0.5, anchor=CENTER)
 
 
-    scrollbar = Scrollbar(rightcisechat, command=chat_textbox.yview)
+    scrollbar = Scrollbar(rightsidechat, command=chat_textbox.yview)
     scrollbar.place(relx=1, rely=0, relheight=1, anchor=NE)
     chat_textbox.config(yscrollcommand=scrollbar.set)
 
@@ -266,7 +266,7 @@ def openuser1():
     load_chat1()
 
     global Chat1
-    Chat1 = Entry(rightcisechat, bg="white", width=130)
+    Chat1 = Entry(rightsidechat, bg="white", width=130)
     Chat1.place(relx=0.5, rely=1, anchor=S)
     priv_msg_button = Button(buttons, text="Private Message", command=lambda: open_private_message("Bence"), height=2, bg="#48CFCB")
     priv_msg_button.place(relx=0.5, rely=0.7, relwidth=0.95, anchor=N)
@@ -337,15 +337,15 @@ def openuser2():
     refresh_button.place(relx=0.5, rely=0.8, relwidth=0.95, anchor=N)
 
 
-    global rightcisechat2
-    rightcisechat2 = Frame(user2window, width=800, height=750, bg="blue")
-    rightcisechat2.place(relx=1, rely=0.5, anchor=E)
+    global rightsidechat2
+    rightsidechat2 = Frame(user2window, width=800, height=750, bg="blue")
+    rightsidechat2.place(relx=1, rely=0.5, anchor=E)
 
     global chat_textbox2
-    chat_textbox2 = Text(rightcisechat2, bg="white", width=100, height=47, wrap="word", state="disabled")
+    chat_textbox2 = Text(rightsidechat2, bg="white", width=100, height=47, wrap="word", state="disabled")
     chat_textbox2.place(relx=0.5, rely=0.5, anchor=CENTER)
 
-    scrollbar = Scrollbar(rightcisechat2, command=chat_textbox2.yview)
+    scrollbar = Scrollbar(rightsidechat2, command=chat_textbox2.yview)
     scrollbar.place(relx=1, rely=0, relheight=1, anchor=NE)
     chat_textbox2.config(yscrollcommand=scrollbar.set)
 
@@ -355,7 +355,7 @@ def openuser2():
     load_chat2()
 
     global Chat2
-    Chat2 = Entry(rightcisechat2, bg="white", width=130)
+    Chat2 = Entry(rightsidechat2, bg="white", width=130)
     Chat2.place(relx=0.5, rely=1, anchor=S)
     priv_msg_button = Button(buttons, text="Private Message", command=lambda: open_private_message("Rasch"), height=2, bg="#48CFCB")
     priv_msg_button.place(relx=0.5, rely=0.7, relwidth=0.95, anchor=N)
@@ -423,15 +423,15 @@ def openuser3():
     refresh_button3 = Button(buttons, text="Refresh Chat", command=refresh_chat3, height=2, bg="#48CFCB")
     refresh_button3.place(relx=0.5, rely=0.8, relwidth=0.95, anchor=N)
 
-    global rightcisechat3
-    rightcisechat3 = Frame(user3window, width=800, height=750, bg="blue")
-    rightcisechat3.place(relx=1, rely=0.5, anchor=E)
+    global rightsidechat3
+    rightsidechat3 = Frame(user3window, width=800, height=750, bg="blue")
+    rightsidechat3.place(relx=1, rely=0.5, anchor=E)
 
     global chat_textbox3
-    chat_textbox3 = Text(rightcisechat3, bg="white", width=100, height=47, wrap="word", state="disabled")
+    chat_textbox3 = Text(rightsidechat3, bg="white", width=100, height=47, wrap="word", state="disabled")
     chat_textbox3.place(relx=0.5, rely=0.5, anchor=CENTER)
 
-    scrollbar3 = Scrollbar(rightcisechat3, command=chat_textbox3.yview)
+    scrollbar3 = Scrollbar(rightsidechat3, command=chat_textbox3.yview)
     scrollbar3.place(relx=1, rely=0, relheight=1, anchor=NE)
     chat_textbox3.config(yscrollcommand=scrollbar3.set)
 
@@ -441,7 +441,7 @@ def openuser3():
     load_chat3()
 
     global Chat3
-    Chat3 = Entry(rightcisechat3, bg="white", width=130)
+    Chat3 = Entry(rightsidechat3, bg="white", width=130)
     Chat3.place(relx=0.5, rely=1, anchor=S)
     priv_msg_button = Button(buttons, text="Private Message", command=lambda: open_private_message("Test"), height=2, bg="#48CFCB")
     priv_msg_button.place(relx=0.5, rely=0.7, relwidth=0.95, anchor=N)
