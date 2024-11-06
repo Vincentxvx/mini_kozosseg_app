@@ -15,12 +15,10 @@ root.geometry('500x200')
 Titlefont = tkFont.Font(family="Times New Roman", size=18, weight="bold", underline=1)
 Labelfont = tkFont.Font(family="Times New Roman", size=12, weight="bold", underline=1)
 
-
-
 users = {
-    "Bence": {"username": "Bence", "password": ""},
-    "Rasch": {"username": "Rasch", "password": ""},
-    "Test": {"username": "Test", "password": ""}
+    "Bence": {"username": "Bence", "password": "123"},
+    "Rasch": {"username": "Rasch", "password": "123"},
+    "Test": {"username": "Test", "password": "123"}
 }
 bg_color = "#48CFCB"
 dark_bg = "#424242"
@@ -59,7 +57,7 @@ def galery():
     galeria.maxsize(1000, 750)
     galeria.config(bg="#424242")
     galeria.title("Galéria")
-    
+
     img1 = PhotoImage(file="../mini_kozosseg_app/bence2.ppm")
     img2 = PhotoImage(file="../mini_kozosseg_app/bence.ppm")
     img3 = PhotoImage(file="../mini_kozosseg_app/bence3.ppm")
@@ -75,14 +73,14 @@ def galery():
     my_label = Label(galeria, image=image_list[index], bg="#424242")
     my_label.place(relx=0.5, rely=0.5, anchor=CENTER)
 
-
     button_forward = Button(galeria, text=">>", command=forward)
     button_forward.place(relx=1.0, rely=0.5, anchor=E)
 
     button_back = Button(galeria, text="<<", command=back)
-    button_back.place(relx=0.0, rely=0.5, anchor=W) 
+    button_back.place(relx=0.0, rely=0.5, anchor=W)
     bezar = Button(galeria, text="Kilépés", command=galeria.destroy, bg="red")
     bezar.place(relx=0.5, rely=0.95, anchor=CENTER)
+
 
 def forward():
     global my_label
@@ -91,12 +89,13 @@ def forward():
     my_label.grid_forget()
     my_label.place_forget()
     if index + 1 == len(image_list):
-        index = 0   
+        index = 0
     else:
         index += 1
     my_label = Label(galeria, image=image_list[index], bg="#424242")
     my_label.place(relx=0.5, rely=0.5, anchor=CENTER)
     textOfStatusbar.set(str(index + 1) + ". kép, összesen: " + str(len(image_list)))
+
 
 def back():
     global my_label
@@ -112,6 +111,7 @@ def back():
     my_label.place(relx=0.5, rely=0.5, anchor=CENTER)
     textOfStatusbar.set(str(index + 1) + ". kép, összesen: " + str(len(image_list)))
 
+
 def galery2():
     global image_list2, galeria2, textOfStatusbar2, status2, index2, my_label2
     galeria2 = Toplevel()
@@ -119,7 +119,7 @@ def galery2():
     galeria2.maxsize(1000, 750)
     galeria2.config(bg="#424242")
     galeria2.title("Galéria")
-    
+
     img1 = PhotoImage(file="../mini_kozosseg_app/vincent.ppm")
     img2 = PhotoImage(file="../mini_kozosseg_app/vincent2.ppm")
     img3 = PhotoImage(file="../mini_kozosseg_app/vincent3.ppm")
@@ -134,14 +134,14 @@ def galery2():
     my_label2 = Label(galeria2, image=image_list2[index2], bg="#424242")
     my_label2.place(relx=0.5, rely=0.5, anchor=CENTER)
 
-
     button_forward = Button(galeria2, text=">>", command=forward2)
     button_forward.place(relx=1.0, rely=0.5, anchor=E)
 
     button_back = Button(galeria2, text="<<", command=back2)
-    button_back.place(relx=0.0, rely=0.5, anchor=W) 
+    button_back.place(relx=0.0, rely=0.5, anchor=W)
     bezar = Button(galeria2, text="Kilépés", command=galeria2.destroy, bg="red")
     bezar.place(relx=0.5, rely=0.95, anchor=CENTER)
+
 
 def forward2():
     global my_label2
@@ -150,12 +150,13 @@ def forward2():
     my_label2.grid_forget()
     my_label2.place_forget()
     if index2 + 1 == len(image_list2):
-        index2 = 0   
+        index2 = 0
     else:
         index2 += 1
     my_label2 = Label(galeria2, image=image_list2[index2], bg="#424242")
     my_label2.place(relx=0.5, rely=0.5, anchor=CENTER)
     textOfStatusbar2.set(str(index2 + 1) + ". kép, összesen: " + str(len(image_list2)))
+
 
 def back2():
     global my_label2
@@ -191,6 +192,7 @@ def openinfo():
     bezar = Button(InfoWin, text="Kilépés", command=InfoWin.destroy, bg="red")
     bezar.place(relx=0.5, rely=0.9, anchor=CENTER)
 
+
 def openinfo2():
     InfoWin = Toplevel()
     InfoWin.geometry("500x750")
@@ -202,13 +204,12 @@ def openinfo2():
     adatok.place(relx=0.5, rely=0.1, anchor=CENTER)
     nev = Label(InfoWin, text="Név: Rasch Vincent Richard")
     nev.place(relx=0.5, rely=0.2, anchor=CENTER)
-    szuletett = Label(InfoWin, text="Született: írd be")
+    szuletett = Label(InfoWin, text="Született: 2007 Április 26")
     szuletett.place(relx=0.5, rely=0.25, anchor=CENTER)
-    sport = Label(InfoWin, text="Sport: írd be")
+    sport = Label(InfoWin, text="Sport: Muay Thai, Röplabda, Kosárlabda")
     sport.place(relx=0.5, rely=0.3, anchor=CENTER)
     bezar = Button(InfoWin, text="Kilépés", command=InfoWin.destroy, bg="red")
     bezar.place(relx=0.5, rely=0.9, anchor=CENTER)
-
 
 
 def openuser1():
@@ -219,9 +220,7 @@ def openuser1():
     user1window.config(bg="#424242")
     user1window.title("User Profile")
     with open("./messages.txt", "a", encoding="utf-8"):
-        pass 
-
-
+        pass
 
     lsideinfo = Frame(user1window, bg="#303030", width=200, height=750)
     lsideinfo.place(relx=0, rely=0.5, anchor=W)
@@ -242,10 +241,8 @@ def openuser1():
     ChatSend = Button(buttons, text="ChatSend", command=messages1, height=2, bg="#48CFCB")
     ChatSend.place(relx=0.5, rely=0.9, relwidth=0.95, anchor=N)
 
-
     refresh_button = Button(buttons, text="Refresh", command=refresh_chat1, height=2, bg="#48CFCB")
     refresh_button.place(relx=0.5, rely=0.8, relwidth=0.95, anchor=N)
-
 
     global rightsidechat
     rightsidechat = Frame(user1window, width=800, height=750, bg="blue")
@@ -254,7 +251,6 @@ def openuser1():
     global chat_textbox
     chat_textbox = Text(rightsidechat, bg="white", width=100, height=47, wrap="word", state="disabled")
     chat_textbox.place(relx=0.5, rely=0.5, anchor=CENTER)
-
 
     scrollbar = Scrollbar(rightsidechat, command=chat_textbox.yview)
     scrollbar.place(relx=1, rely=0, relheight=1, anchor=NE)
@@ -268,12 +264,13 @@ def openuser1():
     global Chat1
     Chat1 = Entry(rightsidechat, bg="white", width=130)
     Chat1.place(relx=0.5, rely=1, anchor=S)
-    priv_msg_button = Button(buttons, text="Private Message", command=lambda: open_private_message("Bence"), height=2, bg="#48CFCB")
+    priv_msg_button = Button(buttons, text="Private Message", command=lambda: open_private_message("Bence"), height=2,
+                             bg="#48CFCB")
     priv_msg_button.place(relx=0.5, rely=0.7, relwidth=0.95, anchor=N)
 
 
 def load_chat1():
-    chat_textbox.config(state="normal")  
+    chat_textbox.config(state="normal")
     chat_textbox.delete(1.0, END)
     with open('./messages.txt', 'r', encoding='utf-8') as fajl2:
         for sor in fajl2:
@@ -282,23 +279,23 @@ def load_chat1():
             else:
                 chat_textbox.insert(END, sor + "\n", 'left')
         chat_textbox.yview(END)
-    chat_textbox.config(state="disabled")  
+    chat_textbox.config(state="disabled")
+
+
 def refresh_chat1():
     load_chat1()
 
 
 def messages1():
     message = "Bence: " + Chat1.get()
-    chat_textbox.config(state="normal")  
+    chat_textbox.config(state="normal")
     chat_textbox.insert(END, message + "\n", 'right')
     chat_textbox.yview(END)
-    chat_textbox.config(state="disabled")  
+    chat_textbox.config(state="disabled")
 
     with open('./messages.txt', 'a', encoding='utf-8') as fajl:
         fajl.write(message + "\n")
     Chat1.delete(0, END)
-
-
 
 
 def openuser2():
@@ -309,7 +306,7 @@ def openuser2():
     user2window.config(bg="#424242")
     user2window.title("User Profile")
     with open("./messages.txt", "a", encoding="utf-8"):
-        pass 
+        pass
 
     lsideinfo = Frame(user2window, bg="#303030", width=200, height=750)
     lsideinfo.place(relx=0, rely=0.5, anchor=W)
@@ -333,7 +330,6 @@ def openuser2():
     refresh_button = Button(buttons, text="Refresh", command=refresh_chat2, height=2, bg="#48CFCB")
     refresh_button.place(relx=0.5, rely=0.8, relwidth=0.95, anchor=N)
 
-
     global rightsidechat2
     rightsidechat2 = Frame(user2window, width=800, height=750, bg="blue")
     rightsidechat2.place(relx=1, rely=0.5, anchor=E)
@@ -354,9 +350,9 @@ def openuser2():
     global Chat2
     Chat2 = Entry(rightsidechat2, bg="white", width=130)
     Chat2.place(relx=0.5, rely=1, anchor=S)
-    priv_msg_button = Button(buttons, text="Private Message", command=lambda: open_private_message("Rasch"), height=2, bg="#48CFCB")
+    priv_msg_button = Button(buttons, text="Private Message", command=lambda: open_private_message("Rasch"), height=2,
+                             bg="#48CFCB")
     priv_msg_button.place(relx=0.5, rely=0.7, relwidth=0.95, anchor=N)
-
 
 
 def load_chat2():
@@ -388,9 +384,6 @@ def messages2():
     Chat2.delete(0, END)
 
 
-
-
-
 def openuser3():
     user3window = Toplevel()
     user3window.geometry("1000x750")
@@ -399,8 +392,7 @@ def openuser3():
     user3window.config(bg="#424242")
     user3window.title("User Profile")
     with open("./messages.txt", "a", encoding="utf-8"):
-        pass 
-
+        pass
 
     lsideinfo = Frame(user3window, bg="#303030", width=200, height=750)
     lsideinfo.place(relx=0, rely=0.5, anchor=W)
@@ -440,7 +432,8 @@ def openuser3():
     global Chat3
     Chat3 = Entry(rightsidechat3, bg="white", width=130)
     Chat3.place(relx=0.5, rely=1, anchor=S)
-    priv_msg_button = Button(buttons, text="Private Message", command=lambda: open_private_message("Test"), height=2, bg="#48CFCB")
+    priv_msg_button = Button(buttons, text="Private Message", command=lambda: open_private_message("Test"), height=2,
+                             bg="#48CFCB")
     priv_msg_button.place(relx=0.5, rely=0.7, relwidth=0.95, anchor=N)
 
 
@@ -519,7 +512,6 @@ def open_private_message(sender):
             message_display.insert(END, message)
             message_display.yview(END)
 
-
             filenames = sorted([sender, recipient])
             filename = f"{filenames[0]}_{filenames[1]}.txt"
             with open(filename, 'a') as file:
@@ -536,7 +528,6 @@ def login():
     username_input = user_entry.get()
     password_input = passwd_entry.get()
 
-
     if username_input in users:
         if users[username_input]["password"] == password_input:
             if username_input == "Bence":
@@ -549,8 +540,6 @@ def login():
             messagebox.showerror("Error", "Invalid password")
     else:
         messagebox.showerror("Error", "Invalid username")
-
-
 
 
 Enter = Button(userpass, text="Login", command=login)
