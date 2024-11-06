@@ -218,7 +218,7 @@ def openuser1():
     user1window.maxsize(1000, 750)
     user1window.config(bg="#424242")
     user1window.title("User Profile")
-    with open("./messages.txt", "a", encoding="utf-8") as uzenetek:
+    with open("./messages.txt", "a", encoding="utf-8"):
         pass 
 
 
@@ -283,9 +283,6 @@ def load_chat1():
                 chat_textbox.insert(END, sor + "\n", 'left')
         chat_textbox.yview(END)
     chat_textbox.config(state="disabled")  
-
-
-
 def refresh_chat1():
     load_chat1()
 
@@ -311,7 +308,7 @@ def openuser2():
     user2window.maxsize(1000, 750)
     user2window.config(bg="#424242")
     user2window.title("User Profile")
-    with open("./messages.txt", "a", encoding="utf-8") as uzenetek:
+    with open("./messages.txt", "a", encoding="utf-8"):
         pass 
 
     lsideinfo = Frame(user2window, bg="#303030", width=200, height=750)
@@ -401,7 +398,7 @@ def openuser3():
     user3window.maxsize(1000, 750)
     user3window.config(bg="#424242")
     user3window.title("User Profile")
-    with open("./messages.txt", "a", encoding="utf-8") as uzenetek:
+    with open("./messages.txt", "a", encoding="utf-8"):
         pass 
 
 
