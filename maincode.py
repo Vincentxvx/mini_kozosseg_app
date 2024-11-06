@@ -218,6 +218,9 @@ def openuser1():
     user1window.maxsize(1000, 750)
     user1window.config(bg="#424242")
     user1window.title("User Profile")
+    with open("./messages.txt", "a", encoding="utf-8") as uzenetek:
+        pass 
+
 
 
     lsideinfo = Frame(user1window, bg="#303030", width=200, height=750)
@@ -308,7 +311,8 @@ def openuser2():
     user2window.maxsize(1000, 750)
     user2window.config(bg="#424242")
     user2window.title("User Profile")
-
+    with open("./messages.txt", "a", encoding="utf-8") as uzenetek:
+        pass 
 
     lsideinfo = Frame(user2window, bg="#303030", width=200, height=750)
     lsideinfo.place(relx=0, rely=0.5, anchor=W)
@@ -397,6 +401,8 @@ def openuser3():
     user3window.maxsize(1000, 750)
     user3window.config(bg="#424242")
     user3window.title("User Profile")
+    with open("./messages.txt", "a", encoding="utf-8") as uzenetek:
+        pass 
 
 
     lsideinfo = Frame(user3window, bg="#303030", width=200, height=750)
